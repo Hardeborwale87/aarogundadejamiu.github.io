@@ -1,0 +1,1511 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jamiu Arogundade Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>Jamiu Arogundade's</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<!-- <li><a href="landing.html">About</a></li> -->
+							<li><a href="generic.html"></a>Excel</li>
+							<li><a href="elements.html">SQL</a></li>
+							<li><a href="generic.html"></a>Tableau</li>
+							<li><a href="elements.html">Power BI</a></li>
+							<li><a href="generic.html"></a>Pandas</li>
+							<li><a href="elements.html">Python Projects</a></li>
+							<li><a href="generic.html"></a>HTML Projects</li>
+							<li><a href="elements.html">Certifications</a></li>
+						</ul>
+						<!-- <ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul> -->
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner" style="padding-top:2em;">
+							<header class="major">
+								<h1>Telcom Customer Churn Analysis with SQL</h1>
+							</header>
+							<div style="padding-top: 0em;">
+                                <img src="images/R.png" alt="" style="width:90%; height:480px;"/>
+                            </div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+						<div style="padding-top:2em;">
+							<p>You can view the whole code <a href="https://github.com/Hardeborwale87/Telcom_Customer_Churn_SQL" style="text-decoration:none; color:orange">here.</a> </p>
+						</div>
+						<div style="font-size: 45px;"><strong>Introduction:</strong></div>
+						<div>
+							Customer churn refers to the phenomenon where customers cease their relationship with a company,<br> 
+							stop using its products or services, and potentially move to a competitor. It is a critical metric
+							for<br> businesses, particularly in industries with subscription-based models, such as telecommunications, 
+							software<br> services, and more.
+						</div>
+						</p>
+						<!-- One -->
+							<section id="one">
+								
+									<div class="topic"><strong>Importance of Customer Churn Analysis:</strong></div>
+									<li style="padding-top: 0.8em;">
+										<strong>Business Sustainability:</strong>
+										Understanding and mitigating customer churn is essential for the<br> sustainability of a business. A high churn rate can impact 
+										revenue significantly.
+									</li>
+									<li>
+										<strong>Revenue Impact:</strong>
+										Losing existing customers means losing the associated revenue stream.<br> Analyzing churn helps identify areas for improvement to retain 
+										customers and their revenue.
+									</li>
+									<li>
+										<strong>Cost of Acquisition vs. Retention:</strong>
+										Acquiring new customers is often more expensive than retaining existing ones.<br> Churn analysis helps businesses focus on strategies to retain
+										customers and maximize the return on investment.
+									</li>
+									<li>
+										<strong>Customer Satisfaction Improvement:</strong>
+										By analyzing the reasons for churn, businesses can identify aspects of their products,<br> services, or customer experience that need 
+										improvement. This contributes to overall customer satisfaction.
+									</li>
+									<li>
+										<strong>Competitive Edge:</strong>
+										Understanding why customers leave provides insights into competitors' strengths and<br> weaknesses. This knowledge is crucial for maintaining 
+										a competitive edge in the market.
+									</li>
+									<li>
+										<strong>Predictive Analytics:</strong>
+										Churn analysis often involves predictive modeling. By identifying patterns and <br>factors leading to churn, businesses can implement 
+										preventive measures proactively.
+									</li>
+									<li>
+										<strong>Product and Service Enhancement:</strong>
+										Churn analysis can reveal which products or services are not meeting customer<br> expectations. This information guides businesses in 
+										enhancing their offerings.
+									</li>
+									<li>
+										<strong>Customer Retention Strategies:</strong>
+										The insights gained from churn analysis help in the development and implementation of<br> effective customer retention strategies. These could 
+										include personalized marketing, loyalty programs, or improved customer support.
+									</li>
+									<li>
+										<strong>Data-Driven Decision-Making:</strong>
+										Churn analysis enables data-driven decision-making. Instead of making decisions based on<br> assumptions, businesses can use analytical insights
+											to formulate strategies.
+									</li>
+									<li>
+										<strong>Brand Reputation:</strong>
+										A high churn rate may indicate dissatisfaction, potentially harming a company's reputation.<br> Addressing the underlying issues can protect and
+										enhance the brand image.
+									</li>
+							</section>
+
+						<div style="padding-top: 1em;">
+							<section id="one">
+								<div>
+									<strong> About the Dataset:</strong>
+								<p>
+									The Telco Customer Churn dataset provides insights into a fictional telecommunications company that offered 
+									home phone<br> and Internet services to 7043 customers in California across three quarters (Q1, Q2, and Q3). 
+									he data indicates customer retention,<br> churn, and new sign-ups. <a href="https://www.kaggle.com/datasets/aadityabansalcodes/telecommunications-industry-customer-churn-dataset" style="text-decoration: none; color:orange;">Kaggle</a> is the source of this dataset.
+								</p>
+								</div>
+								<div>
+									<strong>Data Structure:</strong>
+
+
+									<div class="topic" style="padding-top: 1.2em;">Demographics:</div>
+									<li>CustomerID: Unique identifier for each customer.</li>
+									<li>Count: Value used for reporting/dashboarding to sum up the number of customers in a filtered set.</li>
+									<li>Gender: Customer's gender (Male, Female)</li>
+									<li>Age: Customer's current age at the end of the fiscal quarter.</li>
+									<li>Senior Citizen: Indicates if the customer is 65 or older (Yes, No).</li>
+									<li>Dependents: Indicates if the customer lives with any dependents (Yes, No)</li>
+									<li>Number of Dependents: Number of dependents living with the customer.</li>
+
+
+									<div class="topic" style="padding-top: 2em;">Location:</div>
+									<li>CustomerID: Unique identifier for each customer.</li>
+									<li>Count: Value used for reporting/dashboarding to sum up the number of customers in a filtered set.</li>
+									<li>Country, State, City: Customer's primary residence details.</li>
+									<li>Zip Code: Customer's primary residence zip code.</li>
+									<li>Latitude, Longitude: Individual latitude and longitude of the customer’s primary residence.</li>
+
+
+									<div class="topic" style="padding-top: 2em;">Population:</div>
+									<li>ID: Unique identifier for each row.</li>
+									<li>Zip Code: Customer's primary residence zip code.</li>
+									<li>Population: Current population estimate for the entire zip code area.</li>
+
+
+									<div class="topic" style="padding-top: 2em;">Services:</div>
+									<li>CustomerID: Unique identifier for each customer.</li>
+									<li>Count: Value used for reporting/dashboarding to sum up the number of customers in a filtered set.</li>
+									<li>Quarter: Fiscal quarter (Q1, Q2, Q3).</li>
+									<li>Referred a Friend: Indicates if the customer has ever referred a friend or family member to this company: Yes, No</li>
+									<li>Number of Referrals: Indicates the number of referrals to date that the customer has made.</li>
+									<li>Tenure in Months: Indicates the total amount of months that the customer has been with the company.</li>
+									<li>Offer: Identifies the last marketing offer that the customer accepted, if applicable.</li>
+									<li>Phone Service: Indicates if the customer subscribes to home phone service with the company: Yes, No</li>
+									<li>Avg Monthly Long Distance Charges: Indicates the customer’s average long distance charges.</li>
+									<li>Multiple Lines: Indicates if the customer subscribes to multiple telephone lines with the company: Yes, No</li>
+									<li>Internet Service: Indicates if the customer subscribes to Internet service with the company: No, DSL, Fiber Optic, Cable.</li>
+									<li>Avg Monthly GB Download: Indicates the customer’s average download volume in gigabytes.</li>
+									<li>Online Security: Indicates if the customer subscribes to an additional online security service provided by the company: Yes, No</li>
+									<li>Online Backup: Indicates if the customer subscribes to an additional online backup service provided by the company: Yes, No</li>
+									<li>Device Protection Plan: Indicates if the customer subscribes to an additional device protection plan for their Internet equipment.</li>
+									<li>Premium Tech Support: Indicates if the customer subscribes to an additional technical support plan: Yes, No</li>
+									<li>Streaming TV: Indicates if the customer uses their Internet service to stream television programing from a third party provider.</li>
+									<li>Streaming Movies: Indicates if the customer uses their Internet service to stream movies from a third party provider: Yes, No.</li>
+									<li>Streaming Music: Indicates if the customer uses their Internet service to stream music from a third party provider: Yes, No.</li>
+									<li>Unlimited Data: Indicates if the customer has paid an additional monthly fee to have unlimited data downloads/uploads: Yes, No</li>
+									<li>Paperless Billing: Indicates if the customer has chosen paperless billing: Yes, No</li>
+									<li>Payment Method: Indicates how the customer pays their bill: Bank Withdrawal, Credit Card, Mailed Check</li>
+									<li>Monthly Charge: Indicates the customer’s current total monthly charge for all their services from the company.</li>
+									<li>Total Charges: Indicates the customer’s total charges, calculated to the end of the quarter specified above.</li>
+									<li>Total Refunds: Indicates the customer’s total refunds, calculated to the end of the quarter specified above.</li>
+									<li>Total Extra Data Charges: Indicates the customer’s total charges for extra data downloads above those specified in their plan.</li>
+									<li>Total Long Distance Charges: Indicates the customer’s total charges for long distance above those specified in their plan.</li>
+
+
+									<div class="topic" style="padding-top: 2em;">Status:</div>
+									<li>CustomerID: Unique identifier for each customer.</li>
+									<li>Count: Value used for reporting/dashboarding to sum up the number of customers in a filtered set.</li>
+									<li>Quarter: Fiscal quarter (Q1, Q2, Q3).</li>
+									<li>Satisfaction Score: Customer's overall satisfaction rating (1 to 5).</li>
+									<li>Customer Status: Indicates if the customer churned, stayed, or joined.</li>
+									<li>Churn Label: Yes = the customer left the company this quarter. No = the customer remained with the company.</li>
+									<li>Churn Value: 1 = the customer left the company this quarter. 0 = the customer remained with the company.</li>
+									<li>Churn Score: A value from 0-100 that is calculated using the predictive tool IBM SPSS Modeler.</li>
+									<li>Churn Score Category: A calculation that assigns a Churn Score to various categories</li>
+									<li>CLTV: Customer Lifetime Value. A predicted CLTV is calculated using corporate formulas and existing data.</li>
+									<li>Churn Category: A high-level category for the customer’s reason for churning: Attitude, Competitor, Dissatisfaction, Other, Price.</li>
+									<li>Churn Reason: A customer’s specific reason for leaving the company. Directly related to Churn Category.</li>
+									
+								</div>
+
+								<div style="padding-top: 4.5em;">
+									<strong style="padding-top: 4.5em; font-size: 40px;">DATA CLEANING:</strong>
+									
+									<div style="padding-top: 1.5em; font-size: 30px;"><strong>Demographics:</strong></div>
+									<div class="topic" style="padding-top: 2em;">Display the top 10 rows of the Demographics table:</div>
+									<div class="scroll-box">
+										<img src="images/1_demographics.png" alt="Customer Demographics Table" style="height:auto;width:auto;"/>
+									</div>
+
+									<div style="padding-top:2em;" class="topic">Check the data types of columns in the Demographics table:</div>
+									<span class="scroll-box">
+										<img src="images/2_demo_datatypes.png" alt="Demographics Table Data Types" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/2_demo_datatypes_result.png" alt="Demographics Table Data Types" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top:2em;">Assign data type to columns as necessary:</div>
+									<span class="scroll-box">
+										<img src="images/3_demo_datatype_changing.png" alt="Demographics Table Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+									<div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/4_demo_datatypes_change.png" alt="Demographics Table Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top:2em;">Create a new column for Age Group and add new Age Group 'Middle-aged':</div>
+									<span class="scroll-box">
+										<img src="images/5_create_col_agegroup.png" alt=" Demographics new age group" style="height:auto;width:auto;"/>
+									</span>
+									<div class="topic">Result:</div>
+									<div class="scroll-box">
+										<img src="images/5_create_col_agegroup_result.png" alt="Demographics new age group" style="height:auto;width:auto;"/>
+									</div>
+
+									<div class="topic" style="padding-top: 2em;">Drop old Under 30 and Senior Citizen columns:</div>
+									<div class="scroll-box">
+										<img src="images/6_drop_under30_seniorcitizen_col.png" alt="Demographics drop column" style="height:auto;width:auto;"/>
+									</div>
+									<div class="topic">Result:</div>
+									<div class="scroll-box">
+										<img src="images/6_drop_under30_seniorcitizen_col_result.png" alt="Demographics drop column" style="height:auto;width:auto;"/>
+									</div>
+
+									<div style="padding-top: 2em;" class="topic">Rename Married column to Marital Status:</div>
+									<div class="scroll-box">
+										<img src="images/6_rename_married_col_to_marital_status.png" alt="Demographics marital status" style="height:auto;width:auto;"/>
+									</div>
+									<div class="topic">Result:</div>
+									<div class="scroll-box">
+										<img src="images/6_rename_married_col_to_marital_status_result.png" alt="Demographics drop column" style="height:auto;width:auto;"/>
+									</div>
+
+									<!--Location Cleaning-->
+									<div style="padding-top:4.5em;font-size:30px;"><strong>Location:</strong></div>
+									<div class="topic" style="padding-top:2em;">Display Location table:</div>
+									<div class="scroll-box">
+										<img src="images/7_location.png" alt="Customer Location Table" style="height:auto;width:auto;"/>
+									</div>
+
+									<div style="padding-top:2em;" class="topic">Add new columns 'cleaned_latitude' and 'cleaned_longitude':</div>
+									<div class="scroll-box">
+										<img src="images/8_add_new_col_for_new_lat_and_long.png" alt="Location new lat and long col." style="height:auto;width:auto;"/>
+									</div>
+									<div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/8_add_new_col_for_new_lat_and_long_result.png" alt="Location new lat and long cols" style="height:auto;width:auto;"/>
+									</span>
+
+									<div style="padding-top:2em;" class="topic">Check the data types:</div>
+									<span class="scroll-box">
+										<img src="images/9_check_datatype_location.png" alt="Location Table Data Types" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top: 2em;">Change data types of Count and Zip Code to smallint and int respectively:</div>
+									<span class="scroll-box">
+										<img src="images/10_change_datatype_count_zipcode_col.png" alt="Location Table Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+									<div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/10_change_datatype_count_zipcode_col_result.png" alt="Location Table Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top: 2em;">Remove unnecessary columns:</div>
+									<span class="scroll-box">
+										<img src="images/11_drop_old_col_location.png" alt="Location drop column" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top: 2em;">Rename Column cleaned latitude and cleaned longitude columns:</div>
+									<div class="scroll-box">
+										<img src="images/12_rename_col_location.png" alt="Location rename column" style="height:auto;width:auto;"/>
+									</div>
+									<div class="topic" style="padding-top: 2em;">Cleaned Location Table:</div>
+									<div  class="scroll-box">
+										<img src="images/12_rename_col_location_result.png" alt="Location Table" style="height:auto;width:auto;"/>
+									</div>
+
+
+
+									<!--Population Cleaning-->
+									<div style="padding-top: 4.5em; font-size: 30px;"><strong>Population:</strong></div>
+									<div class="topic" style="padding-top: 2em;">Display Population table:</div>
+									<span class="scroll-box">
+										<img src="images/13_population_table.png" alt="Population Table" style="height:auto;width:auto;"/>
+									</span>
+
+									<div style="padding-top: 2em;" class="topic">Remove symbols from population values:<div>
+									<span class="scroll-box">
+										<img src="images/14_remove_symbols_population.png" alt="Population remove symbols" style="height:auto;width:auto;"/>
+									</span>
+
+									<div style="padding-top: 2m;" class="topic">Check the data types:</div>
+									<span>
+										<img src="images/15_check_datatype_population.png" alt="Population Table Data Types" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top: 2em;">Change data types of ID, Zip Code, and Population columns to smallint and int respectively:</div>
+									<span class="scroll-box">
+										<img src="images/16_change_datatype_population.png" alt="Population Table Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+									<div>Result:</div>
+									<span class="scroll-box">
+										<img src="images/16_change_datatype_population_result.png" alt="Population Data Types Changed" style="height:auto;width:auto;"/>
+									</span>
+
+									<div class="topic" style="padding-top: 2em;">Cleaned Population Table:</div>
+									<span style="height: auto; width: 50%;">
+										<img src="images/17_population_-after_cleaning.png" alt="Location Table" style="height:auto;width:auto;"/>
+									</span>
+
+
+
+										<!--Services Cleaning-->
+									<div style="padding-top: 4.5em;font-size: 30px;"><strong>Services:</strong></div>
+									<div class="topic" style="padding-top: 2em;">Display Services table columns and Data types:</div>
+									<span >
+										<img src="images/18_services_columns_plus_datatypes.png" alt="Services Table" style="height:auto;width:auto;"/>
+									</span>
+									<div>Result:</div>
+									<div>
+										<img src="images/18_services_columns_plus_datatypes_result.png" alt="" style="height:auto;width:auto;"/>
+									</div>
+									<div>
+										<img src="images/18_services_columns_plus_datatypes_continue.png" alt="" style="height:auto;width:auto;"/>
+									</div>
+
+									<div style="padding-top: 2em;" class="topic">Create a new column 'Tenure' to segment 'Tenure in Months' into different groups:</div>
+									<div class="scroll-box">
+										<img src="images/19_create_new_col_tenure_services.png" alt="" style="height:auto;width:auto;"/>
+									</div>
+									<div>Result:</div>
+									<span >
+										<img src="images/19_create_new_col_tenure_services_result.png" alt="" style="height:auto;width:auto;"/>
+									</span>
+
+									<div style="padding-top: 2em;" class="topic">Change columns data types:</div>
+									<div>
+										<img src="images/20_change_services_datatypes.png" alt="" style="height:auto;width:auto;"/>
+									</div>
+									<div>Result:</div>
+									<span class="scroll-box">
+										<img src="images/20_change_services_datatypes_result.png" alt="" style="height:auto;width:auto;"/>
+										<img src="images/20_change_services_datatypes_result_conts.png" alt="" style="height:auto;width:auto;"/>
+									</span>
+
+									
+
+									
+										<!--Status Cleaning-->
+										<div style="padding-top: 4.5em; font-size: 30px;"><strong>Status:</strong></div>
+										<div class="topic">Display Status table columns and Data types:</div>
+										<div class="scroll-box">
+											<img src="images/21_status.png" alt="Services Table" style="height:auto;width:auto;"/>
+										</div>
+							
+										<div style="padding-top: 2em;" class="topic">Add new column 'Satisfaction Score Label':</div>
+										<div class="scroll-box">
+											<img src="images/22_add_new_col_satisfaction_score_label.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div>Result:</div>
+										<div class="scroll-box">
+											<img src="images/22_add_new_col_satisfaction_score_label_result.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+
+										<div style="padding-top: 2em;" class="topic">Add new column 'CLTV Category':</div>
+										<div class="scroll-box">
+											<img src="images/23_add_new_col_CLTVcategory.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div>Result:</div>
+										<div class="scroll-box">
+											<img src="images/23_add_new_col_CLTVcategory_result.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+	
+										<div style="padding-top: 2em;" class="topic">Check columns data types:</div>
+										<div>
+											<img src="images/24_status_datatypes.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										
+										<div style="padding-top: 2em;" class="topic">Change columns data types:</div>
+										<div class="scroll-box">
+											<img src="images/25_change_status_datatypes.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div>Result:</div>
+										<div class="scroll-box">
+											<img src="images/25_change_status_datatypes_result.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+
+										<div style="padding-top: 2em;" class="topic">Check for missing values:</div>
+										<div class="scroll-box">
+											<img src="images/27_check_missing_values_all_cols.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div>No missing value.</div>
+								</div>
+							</section>
+
+							
+						<!--Data Exploration Section-->
+						<!-- Two -->
+							<section id="two">
+								<div style="padding-top:3.5em;">
+									<div>
+										<strong style="font-size: xX-large;">DATA EXPLORATIONS</strong>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating total customers, churned customers, and churn rate:</div>
+										<div class="scroll-box">
+											<img src="images/31_totalCustomers_churnedCustomers_churnRate.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div>
+											<img src="images/31_totalCustomers_churnedCustomers_churnRate_result.png" alt="" />
+										</div>
+										<div>The analysis for this dataset reveals that out of a total customer count of 7,043, 1,869 customers
+											 have <br>churned, resulting in a churn rate of 26.54%. This indicates a significant proportion of 
+											 customers <br>discontinuing the service, emphasizing the importance of implementing effective 
+											 retention strategies<br> to mitigate churn and enhance overall customer satisfaction.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating number of churned customers by gender:</div>
+										<div class="scroll-box">
+											<img src="images/33_churnRate_gender.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/33_churnRate_gender_result.png" alt="" />
+										</span>
+										<div>The churn analysis indicates a comparable churn rate between male and female customers, both around
+											 26%.<br> This suggests the need for universal retention strategies, without a specific gender focus, to 
+											 enhance overall customer loyalty.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate by Age Group:</div>
+										<div class="scroll-box">
+											<img src="images/35_churnedCustomers_age_group.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/35_churnedCustomers_age_group_result.png" alt="" />
+										</span>
+										<div>
+											The analysis indicates varied churn rates across age groups. Middle-aged customers show a 24.10% churn, seniors have<br>
+											 a higher churn at 36.46%, while those under 30 exhibit a relatively lower churn of 21.70%. Tailored retention 
+											 strategies may be effective,<br> especially for senior citizens, to reduce overall churn and enhance customer 
+											 satisfaction.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating average age of churned customers:</div>
+										<div class="scroll-box">
+											<img src="images/34_churnedCustomer_averageAge.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/34_churnedCustomer_averageAge_result.png" alt="" />
+										</span>
+										<div>The average age of churned customers is 49 years.</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate by Marital Status:</div>
+										<div class="scroll-box">
+											<img src="images/36_churnedCustomers_maritalStatus.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/36_churnedCustomers_maritalStatus_result.png" alt=""/>
+										</div>
+										<div>
+											The analysis reveals differing churn rates based on marital status. Married customers exhibit a lower churn rate at 19.66%,<br>
+											while single customers have a higher churn rate of 32.96%.<br> This suggests a potential opportunity to explore targeted retention 
+											strategies for single customers to mitigate churn and<br> improve overall customer retention.
+										</div>
+									</div>
+
+									
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate by Dependents:</div>
+										<div class="scroll-box">
+											<img src="images/37_churnedRate_dependents.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/37_churnedRate_dependents_result.png" alt="" />
+										</span>
+										<div>
+											The analysis shows a substantial contrast in churn rates based on the presence of dependents. 
+											Customers without <br>dependents have a higher churn rate at 32.55%, whereas those with dependents 
+											exhibit a significantly<br> lower churn rate of 6.52%. This suggests that customer retention efforts may
+											 need to be particularly<br> focused on customers without dependents to address and reduce the higher 
+											 churn in this group.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate by Geographical zone:</div>
+										<div class="scroll-box">
+											<img src="images/40_churnedCustomers_lat_long.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/40_churnedCustomers_lat_long_result.png" alt="" />
+										</div>
+										<div>The churn analysis by geographic region indicates similar churn rates for the North (25.18%) and Other (25.27%)<br> 
+											regions, while the South region has a slightly higher churn rate at 30.43%. Implementing region-specific retention<br>
+											strategies, especially in the South, may be beneficial for reducing overall churn and enhancing customer satisfaction.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate by Cities:</div>
+										<div class="scroll-box">
+											<img src="images/39_churnRate_city.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/39_churnRate_city_result.png" alt="" />
+										</span>
+										<div>
+											1. San Diego - Churn Rate: 64.91%<br>
+											2. Fallbrook - Churn Rate: 60.47%<br>
+											3. Temecula - Churn Rate: 57.89%<br>
+											4. Escondido - Churn Rate: 31.37%<br>
+											5. San Francisco - Churn Rate: 29.81%<br>
+											These cities might be the focus of attention for addressing customer resentment tragedy, as they have relatively<br>
+											high churn rates, indicating a significant proportion of customers leaving. Strategies to improve customer 
+											satisfaction,<br> identify pain points, and enhance service delivery may be beneficial in these areas.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating churn rate Population estimates:</div>
+										<div class="scroll-box">
+											<img src="images/41_churnedCustomer_population.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/41_churnedCustomer_population_result.png" alt="" />
+										</div>
+										<div>
+											The analysis results provide insights into customer churn rates across different zip codes in the San Diego area. Notably,<br> 
+											Fallbrook (Zip Code: 92028) has the highest population among the listed areas and exhibits a relatively lower churn rate of<br> 60.47%, 
+											suggesting better customer retention. On the other hand, several San Diego zip codes, such as 92122, 92117, and 92126, experience<br> 
+											higher churn rates above 87%, indicating potential challenges in retaining customers in these areas. The data underscores the<br> 
+											importance of investigating the underlying factors contributing to customer churn< in specific regions, especially in San Diego,<br>
+											to develop targeted strategies for customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">investigating why there are high churn rates in the cities above:</div>
+										<div class="scroll-box">
+											<img src="images/41_churnedCustomer_population_reasons.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/41_churnedCustomer_population_reasons_result.png" alt="" />
+										</div>
+										<div>
+											The analysis reveals a consistent trend across different zip codes, where the primary reason for customer
+											churn<br> is a competitor making a better offer. In all cases, customers appear to be swayed by offerings from<br>
+											competitors, resulting in a high churn rate. This insight suggests that there might be intense competition in the<br>
+											market, and<br> customers are quick to switch providers when presented with more attractive alternatives. To address<br>
+											this challenge, businesses in these areas should consider reevaluating and enhancing their value propositions, possibly<br>
+											by offering competitive pricing, additional services, or loyalty programs. Understanding the specific aspects of competitors'<br>
+											offers that appeal to customers could guide the development of effective retention strategies tailored to each location.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Quarters:</div>
+										<div class="scroll-box">
+											<img src="images/42_churnedRate_quarter.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/42_churnedRate_quarter_result.png" alt="" />
+										</span>
+										<div>
+											The analysis of customer churn over different quarters reveals varying churn rates. In Q2, the churn rate is<br>
+											notably higher at 32.16%, indicating a higher proportion of customers leaving during that period. However, there<br>
+											is a significant improvement in Q3, with a reduced churn rate of 18.97%. Q1 falls in between, with a churn rate of 20.83%.<br>
+											This suggests that there might be seasonal or time-dependent factors influencing customer retention. Businesses should delve<br>
+											deeper into the specific conditions and strategies employed during each quarter to identify patterns and implement targeted<br>
+											retention measures during periods of higher vulnerability, particularly in Q2.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Referrals:</div>
+										<div class="scroll-box">
+											<img src="images/43_churnRate_friend_referral.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/43_churnRate_friend_referral_result.png" alt="" />
+										</div>
+										<div>
+											Customers referred by a friend ('Yes') have a lower churn rate at 19.37%, suggesting the positive impact of referrals on<br>
+											retention. In contrast, those not referred ('No') exhibit a higher churn rate of 32.58%. Strengthening referral programs<br>
+											could be a valuable strategy for reducing churn and enhancing customer loyalty.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Tenure:</div>
+										<div class="scroll-box">
+											<img src="images/45_churnRate_tenure.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/45_churnRate_tenure_group.png" alt="" />
+										</div>
+										<div>
+											Customers with more than 3 years of tenure show a significantly lower churn rate at 11.93%, emphasizing the positive<br>
+											correlation between longer tenure and customer retention. On the contrary, customers with a 6-month tenure exhibit a<br>
+											higher churn rate at 53.33%. Focusing on strategies to enhance early customer engagement and loyalty during the initial<br>
+											months could be crucial for reducing churn.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Offer Types:</div>
+										<div class="scroll-box">
+											<img src="images/46_churnRate_offerTypes.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/46_churnRate_offerTypes_result.png" alt="" />
+										</div>
+										<div>
+											The analysis shows varying churn rates based on different offers. "Offer A" and "Offer B" exhibit lower churn rates at<br>
+											6.73% and 12.26%, respectively, indicating that these offers may contribute to customer retention. Conversely, "Offer E"<br>
+											has a high churn rate of 52.92%, suggesting it might not be resonating well with customers. Further exploration into<br>
+											the characteristics and effectiveness of each offer can guide strategies to enhance customer loyalty.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Phone Services:</div>
+										<div class="scroll-box">
+											<img src="images/47_churnRate_phoneServices.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/47_churnRate_phoneServices_result.png" alt="" />
+										</div>
+										<div>
+											The analysis indicates that customers with phone service have a slightly higher churn rate (26.71%) compared<br>
+											to those without phone service (24.93%). Understanding the reasons behind this difference, such as customer<br>
+											satisfaction with the phone< service or additional features associated with it, could help optimize customer<br> 
+											retention strategies.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Internet Service:</div>
+										<div class="scroll-box">
+											<img src="images/50_churnRate_internet_services.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/50_churnRate_internet_services_result.png" alt="" />
+										</div>
+										<div>
+											Customers with internet service have a higher churn rate (31.83%) compared to those without (7.40%).<br> 
+											Addressing issues related to internet service, such as speed or pricing, can be crucial for improving<br> 
+											customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Average Monthly GB Download:</div>
+										<div class="scroll-box">
+											<img src="images/48_churnRate_avg_monthly_download.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/48_churnRate_avg_monthly_download_result.png" alt="" />
+										</div>
+										<div>
+											Customers with higher average monthly GB downloads, especially in the range of 27 to 30 GB, exhibit elevated<br> 
+											churn rates, suggesting a correlation between data usage patterns and customer attrition. Further analysis on<br>
+											the reasons behind this trend could provide insights into improving service offerings or addressing customer<br> 
+											needs in these usage brackets.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Average Long Distance Charges:</div>
+										<div class="scroll-box">
+											<img src="images/48_churnRate_avg_monthly_long_distance.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/48_churnRate_avg_monthly_long_distance_result.png" alt="" />
+										</div>
+										<div>
+											Customers with higher average monthly long-distance charges, particularly in the range of 39.36 to 20.26, demonstrate<br>
+											significantly elevated churn rates. This suggests a potential relationship between long-distance charges and customer<br> 
+											attrition. Further investigation into the specific factors influencing these charges and corresponding churn rates<br> 
+											could inform strategies to mitigate customer turnover in this segment.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Multiple lines:</div>
+										<div class="scroll-box">
+											<img src="images/49_churnRate_multiple_lines.png" alt="" style="height:auto;width:auto;""/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/49_churnRate_multiple_lines_result.png" alt="" />
+										</div>
+										<div>
+											Customers with multiple lines (Yes) exhibit a slightly higher churn rate (28.61%) compared to those without multiple lines<br>
+											(No) with a churn rate of 25.02%. While the difference is not drastic, it could indicate that the presence of multiple lines<br>
+											may influence customer retention to some extent. Further exploration of customer needs and satisfaction within each segment<br> 
+											could provide insights into optimizing retention strategies.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Internet Type:</div>
+										<div class="scroll-box">
+											<img src="images/51_churnRate_internet_type.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/51_churnRate_internet_type_result.png" alt="" />
+										</div>
+										<div>
+											The churn rate varies significantly depending on the internet type. Customers with Fiber Optic have a high churn rate<br> of 40.72%,
+											while DSL customers have a lower churn rate of 18.58%. Cable and No Internet customers fall in between,<br> with churn rate of 25.66%
+											and 7.40%, respectively. Understanding the reasons behind this divergence can help in tailoring <br>retention strategies for different
+											internet service types.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Online Security:</div>
+										<div class="scroll-box">
+											<img src="images/52_churnRate_online_security.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/52_churnRate_online_security_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Online Security feature have a lower churn rate (14.61%) compared to those without it (31.33%).<br> Implementing or promoting 
+											online security measures might contribute to customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Online Backup:</div>
+										<div class="scroll-box">
+											<img src="images/53_churnrate_online_backup.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/53_churnrate_online_backup_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Online Backup services exhibit a lower churn rate (21.53%) compared to those without it (29.17%).<br> Providing
+											and emphasizing the importance of online backup may positively impact customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Device Protection Plan:</div>
+										<div class="scroll-box">
+											<img src="images/54_curnrate_protection_plan.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/54_curnrate_protection_plan_result.png" alt="" />
+										</div>
+										<div>
+											Customers with a Device Protection Plan have a lower churn rate (22.50%) compared to those without it (28.65%).<br>
+											This suggests that offering and promoting device protection plans could contribute to improved customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Premium Tech Support:</div>
+										<div class="scroll-box">
+											<img src="images/55_churnrate_premium_tech.png" alt="" style="height:auto;width:auto;">
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/55_churnrate_premium_tech_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Premium Tech Support have a significantly lower churn rate (15.17%) compared to those without it (31.19%).<br>
+											This indicates that the availability of premium tech support might positively impact customer satisfaction and retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Streaming TV:</div>
+										<div class="scroll-box">
+											<img src="images/56_churnrate_streaming_tv.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/56_churnrate_streaming_tv_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Streaming TV exhibit a slightly higher churn rate (30.07%) compared to those without it (24.33%).<br> This suggests that
+											offering or not offering Streaming TV services may have a subtle influence on customer<br> retention, with the absence of such services
+											correlating with a slightly lower churn rate.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Streaming Movies:</div>
+										<div class="scroll-box">
+											<img src="images/57_churnrate_streaming_movies.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/57_churnrate_streaming_movies_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Streaming Movies have a higher churn rate (29.94%) compared to those without it (24.38%).<br>
+											This indicates that the presence of Streaming Movies services might contribute to a slightly elevated churn<br> rate among customers,
+											suggesting a potential area for service improvement or customer engagement.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Streaming Music:</div>
+										<div class="scroll-box">
+											<img src="images/57(2)_churnrate_streaming_music.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/57(2)_churnrate_streaming_music_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Streaming Music services have a higher churn rate (29.26%) compared to those without it (25.05%).<br> This 
+											suggests that the availability of Streaming Music might influence customer retention, indicating a need to assess<br> and 
+											potentially enhance this service to address customer satisfaction and reduce churn.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Unlimited Data:</div>
+										<div class="scroll-box">
+											<img src="images/58_churnrate_unlimited_data.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/58_churnrate_unlimited_data_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Unlimited Data have a significantly higher churn rate (31.65%) compared to those without it (15.97%).<br> 
+											This implies that the Unlimited Data feature might be a contributing factor to customer attrition. Further<br> 
+											investigation into customer feedback and preferences regarding data usage could help identify<br> potential improvements
+											or alternative offerings to reduce churn.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Customers Churn Reasons by Unlimited Data:</div>
+										<div class="scroll-box">
+											<img src="images/58_churnReason_unlimited_data.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/58_churnReason_unlimited_data_result.png" alt="" />
+										</div>
+										<div>
+											The churn reasons for customers with Unlimited Data ('Yes') cover a range of factors, including competition-related aspects<br>
+											such as better devices and offers from competitors. Additionally, customer dissatisfaction with support personnel, service<br>
+											provider attitude, product, pricing, and network reliability are among the reasons contributing to churn. Addressing these<br>
+											specific concerns through targeted improvements in device offerings, pricing strategies, customer support training, and<br> 
+											network reliability could potentially help in reducing churn among customers with Unlimited Data.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Customers Churn Reasons by Contract Type:</div>
+										<div class="scroll-box">
+											<img src="images/59_churnrate_contract_type.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/59_churnrate_contract_type_result.png" alt="" />
+										</div>
+										<div>
+											Customers with Month-to-Month contracts exhibit a significantly higher churn rate (45.84%) compared to those with<br> One-Year (10.71%) and 
+											Two-Year (2.55%) contracts. Long-term contract commitments appear to correlate<br> with lower churn rates, suggesting that offering incentives
+											or promotions to encourage longer-term<br> contracts may contribute to customer retention. Understanding the factors driving
+											churn in Month-to-Month contracts<br> and addressing them could be crucial for improving overall customer retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Papperless Billing:</div>
+										<div class="scroll-box">
+											<img src="images/60_churnrate_papperless_billing.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/60_churnrate_papperless_billing_result.png" alt="" />
+										</div>
+										<div>
+											Customers opting for Paperless Billing experience a notable difference in churn rates, with a higher churn rate of <br>
+											33.57% compared to 16.33% for those with traditional billing methods. This indicates that there might be factors<br> 
+											related to Paperless Billing, such as user experience, pricing, or service quality, contributing to a higher<br> 
+											likelihood of churn. Analyzing and addressing these specific issues could be essential for improving customer<br> 
+											retention among Paperless Billing users.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Payment Method:</div>
+										<div class="scroll-box">
+											<img src="images/61_churnrate_payment_method.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/61_churnrate_payment_method_result.png" alt="" />
+										</div>
+										<div>
+											The data reveals notable differences in churn rates based on payment methods. Customers using Bank Withdrawal and Mailed Check<br> 
+											exhibit higher churn rates at 34.00% and 36.88%, respectively, compared to the lower churn rate of 14.48% for Credit Card<br> 
+											payments. Streamlining and incentivizing the usage of more stable payment methods, such as Credit Cards, could potentially<br> 
+											mitigate churn and improve overall customer retention.
+										</div>
+									</div>
+
+
+									
+									<div style="padding-top: 3em;">
+										<div class="topic">Total Charges by Payment Method:</div>
+										<div class="scroll-box">
+											<img src="images/61_churned_payment_method_total_charges.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/61_churned_payment_method_total_charges_result.png" alt="" />
+										</div>
+										<div>
+											Analyzing the churn data alongside total charges by payment method, it's apparent that Bank Withdrawal, despite having the 
+											highest total<br> charges at $2,153,188.15, also has the highest churn rate (34.00%). On the contrary, Credit Card, with a lower 
+											total charge<br> of $641,666.70, has a substantially lower churn rate (14.48%). This suggests an interesting dynamic where higher 
+											total charges do<br> not necessarily correlate with lower churn rates. Further investigation into the reasons behind churn in each
+											 payment method<br> could provide insights into potential areas for improvement and customer retention strategies.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Top Churn Reasons by Bank withdrawal Payment Method:</div>
+										<div class="scroll-box">
+											<img src="images/61_churnreason_payment_method.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/61_churnreason_payment_method_result.png" alt="" />
+										</div>
+										<div>
+											Given the detailed churn reasons for customers using Bank Withdrawal as their payment method, it's evident that competitors play a<br> 
+											significant role in the churn process. Better devices, more attractive offers, and higher download speeds from competitors seem to<br> 
+											be influencing factors. Additionally, aspects related to customer service, such as the attitude of support personnel and service<br> 
+											providers, as well as product dissatisfaction and pricing concerns, contribute to churn. Addressing these specific pain points<br> 
+											could be crucial in devising strategies to retain Bank Withdrawal customers.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Refunds:</div>
+										<div class="scroll-box">
+											<img src="images/64_churnrate_refund.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/64_churnrate_refund_result.png" alt="" />
+										</div>
+										<div>
+											The data indicates that customers who did not request a refund have a higher churn rate (27.03%) compared to those who requested a<br> 
+											refund (20.38%). While this might seem counterintuitive at first glance, it could suggest that customers who sought refunds had<br> 
+											specific issues that were addressed, leading to a lower likelihood of churn. Further investigation into the nature of refund requests<br> 
+											and the reasons behind them could provide valuable insights into customer satisfaction and retention strategies.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Minumum, Maximum, Average, and Sum of Refunds by Churned Customers:</div>
+										<div class="scroll-box">
+											<img src="images/64_min_max_avg_sum_refund.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/64_min_max_avg_sum_refund_result.png" alt="" />
+										</div>
+										<div>
+											The refund-related statistics provide additional context. The data shows a range of refund amounts from $0 to $49.57, with an average<br> 
+											refund of $1.52. The total refund amount across all transactions is $2838.98. Understanding the distribution and average<br> amount of refunds
+											 can help in assessing the financial impact and identifying patterns related<br> to customer satisfaction and retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Satisfaction Score:</div>
+										<div  class="scroll-box">
+											<img src="images/65_churnrate_satisfaction_score.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/65_churnrate_satisfaction_score_result.png" alt="" />
+										</div>
+										<div>
+											The satisfaction score analysis reveals that all customers labeled as "Very Dissatisfied" or "Dissatisfied" have churned, resulting<br>
+											 in a 100% churn rate for these categories. However, among customers labeled as "Neutral," only 16.10% have churned. Notably, all<br> 
+											 customers labeled as "Satisfied" or "Very Satisfied" have not churned, showing a 0% churn rate. This underscores the significance<br> 
+											 of customer satisfaction in retention efforts, with a higher satisfaction score correlating with lower churn rates.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Minimum, Maximum, and Average Satisfaction Score:</div>
+										<div  class="scroll-box">
+											<img src="images/65_min_max_avg_satisfaction_score.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/65_min_max_avg_satisfaction_score_result.png" alt="" />
+										</div>
+										<div>
+											The satisfaction score analysis indicates a range from a minimum score of 1 to a maximum score of 3, with an average score of 1.<br> 
+											This suggests that the satisfaction scores are clustered towards the lower end of the scale, indicating a predominantly<br> 
+											dissatisfied or neutral sentiment among customers. The company may benefit from investigating and addressing the factors<br>
+											contributing to lower satisfaction scores to enhance overall customer experience and reduce churn.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Top Churned Reasons by Satisfaction Score:</div>
+										<div  class="scroll-box">
+											<img src="images/65_satisfaction_score_churn_reason.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/65_satisfaction_score_churn_reason_result.png" alt="" />
+										</div>
+										<div>
+											The churn reasons associated with different satisfaction score labels provide valuable insights into the factors influencing customer<br> 
+											satisfaction. Notably, customers who are very dissatisfied often cite reasons such as competitor offerings (better devices or better<br> 
+											offers), attitude of support personnel, and product dissatisfaction. Addressing these specific pain points, improving support<br> 
+											interactions, and enhancing product features could contribute to a more positive customer experience and potentially reduce churn,<br> 
+											particularly among those with lower satisfaction scores.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Churn Score:</div>
+										<div  class="scroll-box">
+											<img src="images/67_churnrate_churn_score.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/67_churnrate_churn_score_result.png" alt="" />
+										</div>
+										<div>
+											The churn score groups provide a segmentation based on the likelihood of customer churn, as predicted by the IBM SPSS Modeler.<br> 
+											Notably, a significant proportion of customers fall into the "Very High" churn score group, indicating a high likelihood of <br>
+											churning. It's interesting to observe that there are customers in the "High," "Medium," and "Low" score groups who have not<br> 
+											churned, presenting an opportunity to investigate what factors contribute to customer retention within these segments. Analyzing<br>
+											the characteristics or behaviors of non-churning customers in these groups could uncover strategies for mitigating churn risk.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Minimum, Maximum, and Average Churn Score of Churned Customers:</div>
+										<div  class="scroll-box">
+											<img src="images/67_churn_score_min_max_avg.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/67_churn_score_min_max_avg_result.png" alt="" />
+										</div>
+										<div>
+											The provided satisfaction score statistics reveal a relatively high average score, with customers generally falling within the<br> range
+											of 65 to 96. The average score of 81 suggests a predominantly positive sentiment among customers. This positive trend is <br>encouraging, 
+											as higher satisfaction scores are typically associated with increased customer loyalty and reduced churn rates. It may be<br> beneficial
+											to delve deeper into the specific factors contributing to this positive satisfaction, enabling the identification and reinforcement<br> 
+											of strategies that lead to customer satisfaction and retention.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Rate by Customer Lifetime Value:</div>
+										<div class="scroll-box">
+											<img src="images/67_churn_score_min_max_avg.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/67_churn_score_min_max_avg_result.png" alt="" />
+										</div>
+										<div>
+											The Customer Lifetime Value (CLTV) analysis indicates different segments based on customer value and their corresponding churn rates.<br> 
+											Notably, the "Medium High" and "Medium" categories exhibit relatively lower churn rates, suggesting that customers in these segments<br> 
+											are more likely to stay with the company over time. On the other hand, the "Low" and "Medium Low" categories have higher churn rates,<br> 
+											signaling potential challenges in retaining customers within these segments.<br>
+
+											It is crucial to explore the factors contributing to the success of retaining customers in the "Medium High" and "Medium" categories.<br> 
+											Identifying and replicating effective strategies from these segments could be instrumental in mitigating churn in the "Low" and<br> 
+											"Medium Low" categories. Additionally, the "High" CLTV category, despite having a low churn rate, represents a smaller customer base.<br> 
+											Exploring opportunities to expand and nurture this segment further could contribute positively to overall CLTV and business profitability.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Category and Churn Reasons:</div>
+										<div class="scroll-box">
+											<img src="images/69_churn_reason.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/69_churn_reason_result.png" alt="" />
+										</div>
+										<div>
+											Above are the Churn Categories and Churn Reasons.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churn Reasons Count:</div>
+										<div class="scroll-box">
+											<img src="images/69_churn_reason_count.png" alt="" style="height:auto;width:auto;""/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/69_churn_reason_count_result.png" alt="" />
+										</div>
+										<div>
+											The churn reasons provide valuable insights into the factors driving customer attrition. Among these, "Competitor had better devices"<br> 
+											and "Competitor made better offer" are the leading reasons for churn, suggesting that competitive pricing and product offerings play a<br>
+											significant role in customer retention.<br>
+
+											Issues related to customer support, such as "Attitude of support person" and "Poor expertise of online support" also contribute to<br>
+											churn. Addressing these areas by enhancing support quality and expertise could positively impact customer satisfaction and reduce<br>
+											churn.<br>
+
+											Price-related concerns, including "Price too high," emphasize the importance of competitive pricing strategies in retaining customers.<br> 
+											Strategic pricing adjustments or the introduction of value-added services could be explored to address this aspect.<br>
+
+											The relatively high numbers in categories like "Don't know" and "Moved" indicate a need for improved communication and understanding of<br>
+											customer needs. Implementing customer feedback mechanisms and targeted communication strategies may help reduce uncertainty and address<br> 
+											concerns.<br>
+
+											The varied nature of churn reasons underscores the complexity of customer decision-making. A comprehensive approach that addresses both<br> 
+											product/service competitiveness and customer experience is essential for effective churn management.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churned Customers Minimum, Maximum, and Average Monthly Charges:</div>
+										<div class="scroll-box">
+											<img src="images/62_avg_monthly_charge.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/62_avg_monthly_charge_result.png" alt="" />
+										</div>
+										<div>
+											The analysis on monthly charges reveals a broad range, from a minimum of $18.85 to a maximum of $118.35, with an average monthly<br>
+											charge of $74.44. This suggests diversity in pricing structures, catering to different customer needs. Understanding this range<br> 
+											can guide strategies for targeted pricing, ensuring competitiveness and value for customers across various segments. 
+										</div>
+									</div>
+
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churned Customers Minimum, Maximum, Average, and Sum of Total Charges:</div>
+										<div class="scroll-box">
+											<img src="images/63_avg_total_charges.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/63_avg_total_charges_result.png" alt="" />
+										</div>
+										<div>
+											The assessment of total charges displays a varied landscape, ranging from $18.85 to $8,684.80. The average total charge is 
+											$1,531.80,<br> accumulating to a sum of $139,130.85. This diversity indicates different customer spending patterns, emphasizing the 
+											importance of tailored<br> offerings and understanding customer segments for effective service and value provision. 
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churned Customers Minimum, Maximum, Average, and Sum of Total Extra Charges:</div>
+										<div class="scroll-box">
+											<img src="images/63_d_avg_min_max_extra_data_charges.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/63_d_avg_min_max_extra_data_charges_result.png" alt="" />
+										</div>
+										<div>
+											The analysis of extra data charges reveals a spectrum from $0.00 to $150.00, with an average charge of $7.16. The cumulative sum of<br>
+											extra data charges is $13,380.00. Understanding this range helps in formulating strategies to manage and possibly reduce extra<br> 
+										 	data charges, ensuring customer satisfaction and cost control. 
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Churned Customers Minimum, Maximum, Average, and Sum of Revenue Charges:</div>
+										<div class="scroll-box">
+											<img src="images/63_e_min,max,avg,sum_revenue.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/63_e_min,max,avg,sum_revenue_result.png" alt="" />
+										</div>
+										<div>
+											The revenue analysis showcases a revenue range from $21.61 to $11,195.44, with an average revenue of $1,971.35. The total revenue<br> 
+											generated is an impressive $3,684,459.82. This comprehensive overview aids in understanding the financial landscape, enabling <br>
+											strategic decisions to optimize revenue streams and enhance overall business performance.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Revenue Lost Percentage due to Churned Customer:</div>
+										<div class="scroll-box">
+											<img src="images/63_e_revenue_loss.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/63_e_revenue_loss_result.png" alt="" />
+										</div>
+										<div>
+											The revenue loss percentage is calculated at 17.24%. This metric provides a clear insight into the extent of revenue loss,<br> 
+											highlighting the significance of addressing churn-related issues to mitigate losses and sustain a healthy financial performance.
+										</div>
+									</div>
+
+									
+									<div style="padding-top:3.5em;">
+										<strong style="font-size: xX-large;">Conclusion:</strong>
+
+										<div>
+											<span>
+												The analysis reveals critical patterns and trends in customer churn across various dimensions. Here are key takeaways:
+											</span>
+										</div>
+										<div>
+											<ol>
+												<li><strong>Geographical Impact:</strong></li>
+												<ul>
+													<li>Areas like San Diego (ZIP codes 92122, 92117, 92126) and Fallbrook (ZIP code 92028)<br> have notably high churn rates, potentially influenced by competitor offers.</li>
+												</ul>
+
+												<li><strong>Churn Drivers:</strong></li>
+												<ul>
+													<li>Competitor offers, especially better deals, significantly contribute to churn across<br> different locations and customer segments.</li>
+													<li>Customer dissatisfaction with service-related factors, such as support attitudes and<br> network reliability, plays a role in churn.</li>
+												</ul>
+
+												<li><strong>Temporal Insights:</strong></li>
+												<ul>
+													<li>Q2 exhibits the highest churn rate, indicating a need for focused retention strategies<br> during this quarter.</li>
+													<li>Longer tenure and referral from a friend correlate with lower churn rates.</li>
+												</ul>
+
+												<li><strong>Offer Impact:</strong></li>
+												<ul>
+													<li>Customers without any special offer exhibit a moderate churn rate, while those with "Offer E"<br> face a high churn risk.</li>
+													<li>Notably, customers with no phone or internet service show a lower churn rate.</li>
+												</ul>
+
+												<li><strong>Service-Specific Insights:</strong></li>
+												<ul>
+													<li>Fiber optic internet service has the highest churn rate, suggesting a need for<br> service quality improvements.</li>
+													<li>Additional services like online security and backup seem to reduce churn, possibly<br> enhancing overall satisfaction.</li>
+												</ul>
+
+												<li><strong>Billing and Payment Methods:</strong></li>
+												<ul>
+													<li>Paperless billing is associated with higher churn, suggesting potential issues with<br> the digital billing process.</li>
+													<li>Payment method-wise, bank withdrawal and mailed check customers have higher churn rates<br> compared to credit card users.</li>
+												</ul>
+
+												<li><strong>Customer Satisfaction:</strong></li>
+												<ul>
+													<li>Dissatisfaction, as indicated by low satisfaction scores, is a strong predictor of churn.</li>
+													<li>Insights from specific churn reasons align with overall satisfaction levels,<br> emphasizing the role of customer experience.</li>
+												</ul>
+
+												<li><strong>Predictive Churn Score:</strong></li>
+												<ul>
+													<li>The predictive churn score, categorized into "Very High," "High," "Medium," and "Low,"<br> effectively stratifies customers based on their likelihood to churn.</li>
+												</ul>
+
+												<li><strong>Financial Impact:</strong></li>
+												<ul>
+													<li>The company faces a 17.24% revenue loss due to churn, underscoring the urgency to<br> implement effective retention strategies.</li>
+												</ul>
+											</ol>
+										</div>
+									</div>
+
+									<div style="padding-top:3.5em;">
+										<strong style="font-size: xX-large;">Conclusion:</strong>
+										<div>
+											<ul>
+												<li>Targeted efforts to counter competitor offers, especially in high-churn regions.</li>
+												<li>Enhancements in service quality, particularly in areas with high dissatisfaction.</li>
+												<li>Tailored retention initiatives during Q2 and for customers with longer tenures.</li>
+												<li>Evaluation and adjustment of special offers to align with customer preferences.</li>
+												<li>Improvements in billing processes, particularly for paperless billing.</li>
+												<li>Focused strategies to improve customer satisfaction and address specific pain points.</li>
+												<li>Ongoing monitoring and adjustments based on predictive churn scores.</li>
+											</ul>
+										</div>
+									</div>
+
+
+									<div style="padding-top:2.5em;">
+										<strong style="font-size: 20px;">Power Bi Dashboard</strong>
+									</div>
+										<div>
+											<img src="images/customerChurn.jpg" alt="Customer Churn" style="padding-top:1.5em;height:680; width:60%"/>
+										</div>
+
+										<div style="padding-top:4.5em;">
+											<p>You can view the whole code <a href="https://github.com/Hardeborwale87/Telcom_Customer_Churn_SQL" style="text-decoration:none; color:orange">here.</a> </p>
+										</div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">aarogundadejamiu@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+234 7032421852</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>Oshogbo, Osun state 230211<br />
+										Nigeria</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://twitter.com/hardeborwale_" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
+								<li><a href="https://github.com/Hardeborwale87" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/jamiuarogundade/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<!-- <ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul> -->
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
+<script>
+	 function openModal() {
+            var modal = document.getElementById("myModal");
+            var modalContent = modal.querySelector(".modal-content");
+            modal.style.display = "block";
+            modalContent.classList.toggle("original-size", true);
+        }
+
+        // Close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            var modalContent = modal.querySelector(".modal-content");
+            modal.style.display = "none";
+            modalContent.classList.toggle("original-size", false);
+        }
+</script>

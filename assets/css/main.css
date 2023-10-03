@@ -3950,3 +3950,53 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+
+
+/* Scrollable image box */
+		.scroll-box {
+			width: 95%; /* Set the width of the box */
+			height: auto; /* Enable scrolling */
+			overflow: auto; /* Add a border for visibility */
+		}
+
+		/* Style for the image */
+		.scroll-box img {
+			width: auto; /* Make the image fill the container width */
+			height: auto; /* Maintain aspect ratio */
+			display: block;
+			cursor: pointer; /* Remove extra space below the image */
+		}
+
+/* topic header */
+		.topic {
+			font-weight: bold;
+			font-size: x-large;
+		}
+
+ /* Style for the modal */
+ .modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.9);
+}
+
+/* Style for the modal content */
+.modal-content {
+	margin: 15% auto;
+	display: block;
+	max-width: 50%;
+	max-height: 40%;
+}
+
+.modal-content.original-size {
+	max-width: none;
+	max-height: none;
+}

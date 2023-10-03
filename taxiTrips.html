@@ -1,0 +1,903 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jamiu Arogundade Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>Jamiu Arogundade's</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<!-- <li><a href="landing.html">About</a></li> -->
+							<li><a href="generic.html"></a>Excel</li>
+							<li><a href="elements.html">SQL</a></li>
+							<li><a href="generic.html"></a>Tableau</li>
+							<li><a href="elements.html">Power BI</a></li>
+							<li><a href="generic.html"></a>Pandas</li>
+							<li><a href="elements.html">Python Projects</a></li>
+							<li><a href="generic.html"></a>HTML Projects</li>
+							<li><a href="elements.html">Certifications</a></li>
+						</ul>
+						<!-- <ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul> -->
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Taxi Trips Analysis</h1>
+							</header>
+                            <div style="padding-top: 0em;">
+                                <img src="images/trips/nyc-taxis.jpg" alt="" style="width:90%; height:480px;"/>
+                            </div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+						<div style="padding-top:2em;">
+							<p>You can view the whole code <a href="https://github.com/Hardeborwale87/Taxi_Trips/blob/main/taxiTrips.sql" style="text-decoration:none; color:orange">here.</a> </p>
+						</div>
+
+						<!-- One -->
+							<section id="one">
+								
+									
+								<div>
+									<strong> Introduction:</strong>
+                                    <p>
+                                        In this comprehensive analysis of New York City taxi ride data, we've delved into various aspects of the taxi industry, examining key<br>
+                                        metrics, patterns, and trends. The dataset encompasses a wide array of information, including trip details, revenue statistics, vendor<br>
+                                        performance, and more. This exploration provides valuable insights into the dynamics of taxi services in the city, offering a nuanced<br>
+                                        understanding of factors influencing trip patterns, revenue streams, and vendor behaviors.
+                                    </p>
+                                    
+								<p>
+									 The dataset is available at <a href="https://www.kaggle.com/datasets/aadityabansalcodes/telecommunications-industry-customer-churn-dataset" style="text-decoration: none; color:orange;">Kaggle.</a>
+								</p>
+								</div>
+								<div>
+									<strong>Data Structure:</strong>
+                                    <ul>
+                                        <li>ID: Unique identifier for each trip</li>
+                                        <li>VendorID: A code indicating the provider associated with the trip record</li>
+                                        <li>pickup_datetime: date and time when the meter was engaged</li>
+                                        <li>dropoff_datetime: date and time when the meter was disengaged</li>
+                                        <li>passenger_count: the number of passengers in the vihicle</li>
+                                        <li>trip_distance: the distance of each trips</li>
+                                        <li>Ratecode ID: the ID of trip rate code</li>
+                                        <li>store_and_fwd_flag: Thi flag indicate whether the trip was held in vehicle memory record: Yes, No</li>
+                                        <li>PULocation ID: trip pickup location ID</li>
+                                        <li>DOLocation ID: trip dropoff location ID</li>
+                                        <li>payment_type: type of payment received by the vendor</li>
+                                        <li>fare_amount: Trip price</li>
+                                        <li>extra: extra payment if any</li>
+                                        <li>mta_tax: price of Metropolitan Transaportation Authority tax if any</li>
+                                        <li>tip_amount: amount of tip received by the vendor if any</li>
+                                        <li>tolls_amount: amount paid as toll fee</li>
+                                        <li>improvement_surcharge: amount paid for improvement surcharge by the vendor</li>
+                                        <li>total_amount: total amount received for each trip</li>
+                                    </ul>
+									
+								</div>
+
+								<div style="padding-top: 4.5em;">
+                                    <div style="padding-top: 1.5em; font-size: 30px;"><strong>Checking Data Info:</strong></div>
+									<div class="topic" style="padding-top: 2em;">Check Data Type of Each Column:</div>
+									<div class="scroll-box">
+										<img src="images/trips/datatype.png" alt="" style="height:auto;width:auto;"/>
+									</div>
+                                    <div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/trips/datatype_result.png" alt="" style="height:auto;width:auto;"/>
+									</span>
+                                    <p>All data types are correctly assigned</p>
+
+									<div class="topic" style="padding-top:2em;">Check for Missing Values:</div>
+									<span class="scroll-box">
+										<img src="images/trips/nullValues.png" alt="" style="height:auto;width:auto;"/>
+									</span>
+									<div class="topic">Result:</div>
+									<span class="scroll-box">
+										<img src="images/trips/nullValues_result.png" alt="" style="height:auto;width:90%;"/>
+									</span>
+                                    <p>No null values</p>
+									
+							
+						<!--Data Exploration Section-->
+						<!-- Two -->
+							<section id="two">
+								<div style="padding-top:3.5em;">
+									<div>
+										<strong style="font-size: xX-large;">DATA EXPLORATIONS</strong>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Total Trips:</div>
+										<div class="scroll-box">
+											<img src="images/trips/1_totaltrips.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div>
+											<img src="images/trips/1_totaltrips_result.png" alt="" />
+										</div>
+										<div>The dataset contains a total of 22,699 taxi trips. This is the overall count of records in the dataset,<br>
+                                            indicating the number of individual taxi journeys captured in your analysis.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Passengers Count by Each Vendors:</div>
+										<div class="scroll-box">
+											<img src="images/trips/2_vendorpassengerCount.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/2_vendorpassengerCount_result.png" alt="" />
+										</span>
+										<div>
+                                            The dataset has 10,073 trips from VendorID 1 and 12,626 trips from VendorID 2. The passenger count<br> information
+                                             is not clearly specified for each VendorID.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Total Trips Distance:</div>
+										<div class="scroll-box">
+											<img src="images/trips/37_total_trip_distance.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/37_total_trip_distance_result.png" alt="" />
+										</span>
+										<div>
+											The total distance covered by all taxi trips in the dataset is 66,129.3 kilometers. This represents the cumulative<br>
+                                            distance traveled across all recorded taxi journeys.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Trips Distance:</div>
+										<div class="scroll-box">
+											<img src="images/trips/36_avg_trip_distance.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/36_avg_trip_distance_result.png" alt="" />
+										</span>
+										<div>
+                                            The average trip distance for all taxi journeys in the dataset is 2.91 kilometers. This provides a measure of the<br>
+                                            typical distance covered in a single taxi trip based on the available data.
+                                        </div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Total Trips duration:</div>
+										<div class="scroll-box">
+											<img src="images/trips/38_total_trip_duration.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/38_total_trip_duration_result.png" alt=""/>
+										</div>
+										<div>
+											The total duration of all taxi trips in the dataset is 6,416 hours. This represents the cumulative time spent<br>
+                                            across all recorded taxi journeys.
+										</div>
+									</div>
+
+									
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Trips Duration:</div>
+										<div class="scroll-box">
+											<img src="images/trips/38_avg_trip_duration.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/38_avg_trip_duration_result.png" alt="" />
+										</span>
+										<div>
+											The average duration of a taxi trip in the dataset is 17 minutes. This provides insight into the typical length of<br>
+                                            time passengers spend on a single taxi journey based on the available data.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Create New Column to Calculate Trip Seconds:</div>
+										<div class="scroll-box">
+											<img src="images/trips/newTripSecColumn.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/newtripsecColumn (2)_result.png" alt="" />
+                                        </div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Trips by Hours and Average Speed:</div>
+										<div class="scroll-box">
+											<img src="images/trips/3_tripsbyhoursandAVGspeed.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/3_tripsbyhoursandAVGspeed_result.png" alt="" />
+										</span>
+										<div>
+											This breakdown provides insights into the patterns of taxi usage throughout the day, with variations in the number of trips<br>
+                                            and average speeds during different hours. For example, there's a noticeable increase in average speed during the early<br>
+                                            morning hours (3 AM and 4 AM) and a peak in the number of trips during rush hours (7 AM and 8 AM).
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Number Trips, Total Distance, Average Distance, Minimum Distance, and Maximum Distance by Months:</div>
+										<div class="scroll-box">
+											<img src="images/trips/4_monthsTripsDistances.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/4_monthsTripsDistances_result.png" alt="" />
+										</div>
+										<div>
+											This breakdown provides insights into the variations in taxi usage and distances traveled throughout the year. For example,<br>
+                                            June has the highest total distance and average distance, while February has the lowest average distance. The minimum and<br>
+                                            maximum distances give an idea of the range of trip lengths during each month.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Trips Ranking by Months and Pickup Time:</div>
+										<div class="scroll-box">
+											<img src="images/trips/5_tripRanking.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/5_tripRanking_result.png" alt="" />
+										</div>
+										<div>
+											This information helps identify the longest taxi trips overall and within each month. For example, the first entry has the<br>
+                                            longest distance (33.96 km) and is ranked as the longest trip overall and within the month of June.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Busiest Hour of Day:</div>
+										<div class="scroll-box">
+											<img src="images/trips/8_busiestHours.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/8_busiestHours_result.png" alt="" />
+										</span>
+										<div>
+                                            This information highlights the peak hours of taxi activity, with 19:00 (7 PM) being the busiest, followed by 18:00 (6 PM),<br>
+                                            20:00 (8 PM), and so on. Understanding the busiest hours can be valuable for optimizing taxi services and managing resources<br>
+                                            efficiently during high-demand periods.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Top 10 Popular Pickup Location:</div>
+										<div class="scroll-box">
+											<img src="images/trips/9_popularPUlocation.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/9_popularPUlocation_result.png" alt="" />
+										</div>
+										<div>
+											This data reveals the popularity of various pickup locations, with PULocationID 237 having the highest number of trips (890).<br>
+                                            Understanding popular pickup locations is crucial for taxi services to optimize their operations and respond to demand effectively<br>
+                                            in different areas.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Popular Dropoff Location:</div>
+										<div class="scroll-box">
+											<img src="images/trips/9_popularDOlocation.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/9_popularDOlocation_result.png" alt="" />
+										</div>
+										<div>
+											This data provides insights into the popularity of various dropoff locations, with DOLocationID 161 having the highest number of<br>
+                                            trips (858). Understanding popular dropoff locations is essential for taxi services to optimize routes, allocate resources<br> 
+                                            effectively, and enhance overall service efficiency.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Time Taken and Sum of Trips Based on Days of the Week:</div>
+										<div class="scroll-box">
+											<img src="images/trips/10_dayOFweekAVGandSUMtrips.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/10_dayOFweekAVGandSUMtrips_result.png" alt="" />
+										</div>
+										<div>
+											This breakdown provides insights into the average and total time spent on taxi trips on different days of the week. For example,<br>
+                                            Thursday and Wednesday have the highest average trip duration, while Saturday and Sunday have higher total trip durations.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Most Common Hour of Day at Specific Dropoff Location:</div>
+										<div class="scroll-box">
+											<img src="images/trips/11_hourofdayDOtrips.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/11_hourofdayDOtrips_result.png" alt="" />
+										</div>
+										<div>
+											This breakdown provides insights into the peak hours for dropoffs at specific locations. For example, for DOLocationID 162, the most<br>
+                                            common hour for dropoffs is 8 AM, with 73 trips. Understanding these patterns can help optimize services and allocate resources<br>
+                                            effectively during peak times at specific dropoff locations.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Most Common Payment Method:</div>
+										<div class="scroll-box">
+											<img src="images/trips/12_commonPaymentType.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/12_commonPaymentType_result.png" alt="" />
+										</div>
+										<div>
+											This breakdown indicates that payment type 1 is the most common, with 15,265 trips, followed by payment type 2 with 7,267 trips.<br> 
+                                            Payment types 3 and 4 are less common, with 121 and 46 trips, respectively. Understanding payment preferences helps in catering to<br> 
+                                            customer needs and optimizing payment processing systems.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing Trips by Quarters:</div>
+										<div class="scroll-box">
+											<img src="images/trips/13_tripsBYquarters.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div>
+											<img src="images/trips/13_tripsBYquarters_result.png" alt="" />
+										</div>
+										<div>
+                                            This information provides insights into the seasonal variations in taxi usage throughout the year. For example, the 2nd Quarter has<br>
+                                            the highest number of trips (9,811), while the 3rd Quarter has the lowest number of trips (8,611). Understanding these patterns can help<br>
+                                            in planning and resource allocation based on seasonal demand.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Preferable Payment Method by Vendors:</div>
+										<div class="scroll-box">
+											<img src="images/trips/14_vendorTripsPaymentMethod.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/14_vendorTripsPaymentMethod_result.png" alt="" />
+										</span>
+										<div>
+                                            For VendorID 1, the most common payment method is Type 1 (6,772 trips), followed by Type 2 (3,148 trips), and Types 3 and 4 with 114<br>
+                                            and 39 trips, respectively.<br>
+                                            <br>
+                                            For VendorID 2, the preferred payment method is also Type 1 (8,493 trips), followed by Type 2 (4,119 trips), and Types 3 and 4 with 7<br>
+                                            trips each. Understanding these preferences is crucial for optimizing payment systems for each vendor.
+										</div>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing Longest Trip Duration:</div>
+										<div class="scroll-box">
+											<img src="images/trips/15_longestTripDuration.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/15_longestTripDuration_result.png" alt="" />
+										</span>
+									</div>
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Payment Type Percentage Distribution:</div>
+										<div class="scroll-box">
+											<img src="images/trips/16_paymentTimeDistribution.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/16_paymentTimeDistribution_result.png" alt="" />
+										</span>
+										<div>
+                                            Payment type 1 is the most common, representing 67.25% of the total trips.<br>
+                                            Payment type 2 follows, representing 32.01%.<br>
+                                            Payment types 3 and 4 are less common, representing 0.53% and 0.20%, respectively.
+									    </div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Top 10 Trips by Total Amount:</div>
+										<div class="scroll-box">
+											<img src="images/trips/17_top10tripsByTotalAmount.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/17_top10tripsByTotalAmount_result.png" alt=""/>
+										</div>
+									</div>
+
+									
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Tip by Hours:</div>
+										<div class="scroll-box">
+											<img src="images/trips/18_hourlyAVGtips.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/18_hourlyAVGtips_result.png" alt="" />
+										</span>
+										<div>
+											Understanding the average tip amounts by the hour provides insights into tipping patterns throughout the day. For example,<br>
+                                            the highest average tip is at 5 AM, with $2.92, while the lowest is at 1 AM, with $1.60. This information can be valuable for<br>
+                                            drivers and taxi services to optimize their services and potentially increase earnings during peak tipping hours.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Fare Amount by Payment Type:</div>
+										<div class="scroll-box">
+											<img src="images/trips/19_AVGfarePaymenttype.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/19_AVGfarePaymenttype_result.png" alt="" />
+                                        </div>
+                                        <div>
+                                            Understanding the average fare amounts for different payment types provides insights into the financial aspects of taxi services.<br>
+                                            For example, payment type 1 has the highest average fare amount at $13.67, while payment type 4 has the lowest at $10.13. This<br>
+                                            information can be valuable for both service providers and customers in understanding the cost dynamics associated with different<br>
+                                            payment methods.
+                                        </div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing Daily Passengers Count:</div>
+										<div class="scroll-box">
+											<img src="images/trips/20_DailyPassengersCount.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/20_DailyPassengersCount_result.png" alt="" />
+										</span>
+										<div>
+											Saturday has the highest average number of passengers at 5,766, while Monday has the lowest at 4,750. This information can be useful<br> for
+                                            taxi services in optimizing their operations and resources based on expected passenger demand on different days.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing Busiest Days of the Week:</div>
+										<div class="scroll-box">
+											<img src="images/trips/21_BusiestDays.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/21_BusiestDays_result.png" alt="" />
+										</div>
+										<div>
+											Friday: With 3,413 trips, Friday emerges as the day with the highest taxi demand during the week.<br>
+                                            Thursday: Following closely, Thursday records 3,402 trips, making it the second busiest day.<br>
+                                            Wednesday: Wednesday is also among the busiest days, with 3,390 taxi trips.<br>
+                                            Saturday: Despite being the weekend, Saturday sees substantial demand with 3,367 trips.<br>
+                                            Tuesday: Tuesday follows with 3,198 trips, contributing to the overall midweek demand.<br>
+                                            Sunday: While slightly less busy, Sunday still registers 2,998 trips.<br>
+                                            Monday: The beginning of the week shows 2,931 taxi trips.<br>
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Busiest Month by Number of Trips:</div>
+										<div class="scroll-box">
+											<img src="images/trips/22_BusiestMonth.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/22_BusiestMonth_result.png" alt="" />
+										</div>
+										<div>
+											The analysis indicates the number of taxi trips for each month of the year, highlighting the busiest months:<br>
+                                            <br>
+                                            March: March is the busiest month, recording 2,049 taxi trips.<br>
+                                            October: Following closely, October is the second busiest month with 2,027 trips.<br>
+                                            April: April ranks third with 2,019 taxi trips.<br>
+                                            May: May is the fourth busiest month with 2,013 trips.<br>
+                                            January: Starting the year strong, January records 1,997 taxi trips.<br>
+                                            June: June follows closely with 1,964 trips.<br>
+                                            December: December, towards the end of the year, has 1,863 taxi trips.<br>
+                                            November: November follows with 1,843 trips.<br>
+                                            February: February records 1,769 taxi trips.<br>
+                                            September: September has 1,734 taxi trips.<br>
+                                            August: August records 1,724 taxi trips.<br>
+                                            July: July is the least busy month among the top months with 1,697 trips.<br>
+                                            Understanding the busiest months is crucial for taxi services to strategically manage their operations, allocate resources<br> 
+                                            efficiently, and potentially capitalize on peak demand periods.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing the Relationship Between Improvement Surcharge and Average Fare Amount:</div>
+										<div class="scroll-box">
+											<img src="images/trips/24_fareamountANDsurchargeRelationship.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/24_fareamountANDsurchargeRelationship_result.png" alt="" />
+										</span>
+										<div>
+                                            The analysis shows the relationship between the improvement surcharge and the average fare amount for taxi trips:<br>
+                                            <br>
+                                            Improvement Surcharge: 0 - In instances where there is no improvement surcharge, the average fare amount is $10.67.<br>
+                                            Improvement Surcharge: 0.3 - When a surcharge of $0.3 is applied, the average fare amount increases to $13.27.<br>
+                                            <br>
+                                            This information highlights that the presence of an improvement surcharge is associated with a higher average fare<br>
+                                            amount. The surcharge appears to contribute an additional amount to the fare, indicating its impact on the overall cost<br>
+                                            of taxi trips. Understanding such relationships is valuable for both taxi services and passengers in comprehending the <br>
+                                            factors influencing fare amounts.
+                                        </div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing the Relationship Between MTA Tax and Average Fare Amount:</div>
+										<div class="scroll-box">
+											<img src="images/trips/25_MtaTax&fareamountRElationship.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/25_MtaTax&fareamountRElationship_result.png" alt="" />
+										</div>
+										<div>
+											The analysis reveals the relationship between the MTA tax and the average fare amount for taxi trips:<br>
+                                            <br>
+                                            MTA Tax: 0 - When there is no MTA tax (0), the average fare amount is $69.59.<br>
+                                            MTA Tax: 0.5 - When an MTA tax of $0.5 is applied, the average fare amount decreases to $13.05.<br>
+                                            <br>
+                                            This information suggests an inverse relationship between the presence of MTA tax and the average fare amount. When an MTA tax is<br> 
+                                            applied, the average fare amount decreases significantly. It's essential for passengers to be aware of such tax implications, and<br>
+                                            for taxi services to consider the impact on fare amounts due to additional charges like MTA tax.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing Trips Where Tip is Received and Trips Where Tip is not Received:</div>
+										<div class="scroll-box">
+											<img src="images/trips/26_receivedtipsORnot.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/26_receivedtipsORnot_result.png" alt="" />
+										</div>
+										<div>
+											The analysis differentiates between taxi trips where a tip was received and those where no tip was received:<br>
+                                            <br>
+                                            Trips with Tip Received: There are 14,642 trips where passengers provided a tip.<br>
+                                            Trips with No Tip: On the other hand, there are 8,057 trips where no tip was received.<br>
+                                            Understanding the distribution of tips is valuable for taxi services to assess customer satisfaction, driver<br>
+                                            performance, and potentially optimize strategies to encourage tipping.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Average Tip Amount by Longest Trips Distance:</div>
+										<div class="scroll-box">
+											<img src="images/trips/27_AVGfareamount&tipamount.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/27_AVGfareamount&tipamount_amount.png" alt="" />
+										</div>
+										<div>
+											In summary, the top 15 longest taxi trips have distances ranging from 26.64 km to 33.96 km. The average tip amounts for these<br>
+                                            long-distance trips vary from $1.55 to $2.12. Interestingly, despite the longer travel distances, the average tip amounts don't<br>
+                                            necessarily increase proportionally, suggesting that factors other than distance may influence tipping behaviors. Understanding<br>
+                                            these patterns can be valuable for taxi services in optimizing driver incentives and improving customer satisfaction.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating Monthly Revenue</div>
+										<div class="scroll-box">
+											<img src="images/trips/28_monthlyrevenue.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/28_monthlyrevenue_result.png" alt="" />
+										</div>
+										<div>
+											This revenue breakdown provides insights into the seasonal variations in the taxi business. Months with higher total revenue may<br>
+                                            indicate increased demand or higher fares, while lower revenue months may have factors like reduced demand or promotional pricing.<br>
+                                            Understanding these patterns can be valuable for optimizing business strategies and planning resource allocation.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating Revenue by Days of the Week:</div>
+										<div class="scroll-box">
+											<img src="images/trips/29_dailyrevenue.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/29_dailyrevenue_result.png" alt="" />
+										</div>
+										<div>
+											This analysis reveals that Thursdays have the highest total revenue, while Sundays have the lowest. Understanding these revenue<br>
+                                            patterns on different days of the week can guide operational decisions and marketing strategies for taxi services.
+										</div>
+									</div>
+
+									
+
+                                    <div style="padding-top: 3em;">
+										<div class="topic">Calculating Revenue by Hours of the Day:</div>
+										<div class="scroll-box">
+											<img src="images/trips/30_hoursrevenue.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/30_hoursrevenue_result.png" alt="" />
+										</span>
+										<div>
+											This breakdown provides insights into the hourly revenue distribution, indicating peak and off-peak periods. This information can<br>
+                                            be crucial for optimizing taxi operations, such as adjusting the number of available taxis during high-demand hours.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Analysing the Number of Trips Where Tolls were Paid and Most Pickup and Dropoff Loacation<br> 
+                                            Tolls were Paid:</div>
+										<div class="scroll-box">
+											<img src="images/trips/31_tollspaidTrips.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/31_tollspaidTrips_result(total).png" alt="" />
+										</div>
+                                        <div class="scroll-box">
+											<img src="images/trips/31_tollspaidTrips_result(trips).png" alt="" />
+										</div>
+										<div>
+											The dataset reveals that a total of 1,174 taxi trips incurred toll charges. Among the pickup locations (PULocationID), the top<br>
+                                            contributors to toll expenses were identified as follows: 164, 161, 246, 230, 48, 107, 170, 138, and 132. Similarly, for dropoff<br>
+                                            locations (DOLocationID), toll-heavy locations included 1, 265, 23, and 118.<br>
+                                            <br>
+                                            The toll amounts varied across these locations, ranging from $16.26 to $18.28. This information is crucial for taxi companies to<br>
+                                            understand the geographical patterns of toll expenses, aiding in route optimization and strategic decision-making related to <br>
+                                            pricing structures.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Tolls Paid By Vendors:</div>
+										<div class="scroll-box">
+											<img src="images/trips/32_vendorsTollspaid.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/32_vendorsTollspaid_result.png" alt="" />
+										</div>
+										<div>
+											The dataset indicates that among the taxi vendors, VendorID 1 incurred toll expenses totaling $2,972.73, while VendorID 2 paid a<br>
+                                            higher amount, summing up to $4,121.65. This information is valuable for assessing the financial impact of toll charges on each<br>
+                                            vendor, contributing to financial planning and vendor management strategies.
+										</div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating Total Extra Charges Paid By Vendors:</div>
+										<div class="scroll-box">
+											<img src="images/trips/34_VendorsTotalExtraCharges.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/34_VendorsTotalExtraCharges_result.png" alt="" />
+										</span>
+										<div>
+                                            The analysis reveals that VendorID 1 accrued a total of $14,357.63 in extra charges, whereas VendorID 2 incurred a higher amount, reaching<br>
+                                            $18,425.15. Understanding the distribution of extra charges among different vendors can be essential for evaluating their cost structures<br>
+                                            and optimizing business operations.
+                                        </div>
+									</div>
+
+
+									<div style="padding-top: 3em;">
+										<div class="topic">Calculating Total Revenue by Vendors After Deducting Extra Charges:</div>
+										<div class="scroll-box">
+											<img src="images/trips/35_VendorsTotalRevenue.png" alt="" style="height:auto;width:auto;"/>
+										</div>
+										<div class="topic">Result:</div>
+										<div class="scroll-box">
+											<img src="images/trips/35_VendorsTotalRevenue_result.png" alt="" />
+										</div>
+										<div>
+											After deducting extra charges, the total revenue for VendorID 1 is $137,947.99, while VendorID 2 generated $172,166.63. This<br>
+                                            adjusted revenue provides a clearer picture of the earnings for each vendor, considering the impact of extra charges on their<br>
+                                            overall income.
+										</div>
+									</div>
+
+										
+
+									<div style="padding-top:3.5em;">
+										<strong style="font-size: xX-large;">Conclusion:</strong>
+										<div>
+											The analysis has shed light on the intricacies of New York City's taxi industry, revealing noteworthy trends and patterns. From<br>
+                                            examining trip distribution across hours, days, and months, to scrutinizing revenue generation and vendor performance, we've gained<br>
+                                            a holistic view of the taxi ecosystem. Key findings include the busiest hours, popular pickup and drop-off locations, preferred payment<br>
+                                            methods, and more. Vendors have been evaluated based on trip counts, revenue, and customer preferences.<br>
+                                            <br>
+                                            These insights not only serve to enrich our understanding of the taxi landscape but also hold practical implications for industry<br>
+                                            stakeholders, policymakers, and taxi service providers. As the industry continues to evolve, informed decision-making becomes increasingly<br>
+                                            crucial. This analysis provides a robust foundation for strategic planning, resource allocation, and service optimization within the New<br>
+                                            York City taxi sector.
+										</div>
+									</div>
+
+
+									<div style="padding-top:2.5em;">
+										<strong style="font-size: 20px;">Power Bi Dashboard</strong>
+									</div>
+										<div>
+											<img src="images/trips/TaxiTrips.jpg" alt="Taxi Trips" style="padding-top:1.5em;height:680; width:60%"/>
+										</div>
+
+										<div style="padding-top:4.5em;">
+											<p>You can view the whole code <a href="https://github.com/Hardeborwale87/Taxi_Trips" style="text-decoration:none; color:orange">here.</a> </p>
+										</div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">aarogundadejamiu@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+234 7032421852</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>Oshogbo, Osun state 230211<br />
+										Nigeria</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://twitter.com/hardeborwale_" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
+								<li><a href="https://github.com/Hardeborwale87" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/jamiuarogundade/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<!-- <ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul> -->
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
+<script>
+	 function openModal() {
+            var modal = document.getElementById("myModal");
+            var modalContent = modal.querySelector(".modal-content");
+            modal.style.display = "block";
+            modalContent.classList.toggle("original-size", true);
+        }
+
+        // Close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            var modalContent = modal.querySelector(".modal-content");
+            modal.style.display = "none";
+            modalContent.classList.toggle("original-size", false);
+        }
+</script>
